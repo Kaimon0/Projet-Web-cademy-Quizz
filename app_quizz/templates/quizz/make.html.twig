@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ categorie.name }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        {{ categorie.name }}
+    </h1>
+
+    {{ form_start(form, {'attr': {'data-turbo': 'false'}}) }}
+    {% for question in questions %}
+        <h3>
+            {{ question.question }}
+        </h3>
+                {% if question.reponses is not empty %}
+
+                    {% for reponse in question.reponses %}
+                        <input type="radio" name="question_{{ question.id }}" value="{{ reponse.reponseexpected }}">
+                            {{ reponse.reponse }}
+
+                        {% endfor %}
+                    {% else %}
+                        <p>
+                            No responses available for this question.
+                        </p>
+                    {% endif %}
+
+                {% endfor %}
+
+                <br/>
+                <br/>
+                {{ form_widget(form.save)}}
+
+                {{ form_end(form, {'render_rest': false}) }}
+                
+
+
+            
+
+        {% endblock %}
+        

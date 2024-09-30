@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Tout les Quizz !
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Tout les Quizz !
+    </h1>
+
+    <ul>
+        {% for categorie in categories %}
+            <li>
+                <a href="{{ path('app_quizz_make', {'id': categorie.id}) }}">
+                    {{ categorie.name }}
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% endblock %}
+    

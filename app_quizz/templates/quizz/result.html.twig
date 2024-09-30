@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Résultats
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Résultats
+    </h1>
+
+    <h2>
+        Votre score:
+        {{ score }}
+        /
+        {{ total }}
+    </h2>
+
+    {% for question in questions %}
+        <h3>
+            {{ question.question }}
+        </h3>
+
+        {% for reponse in question.reponses %}
+            {% if reponse.reponseexpected == 1 %}
+
+            <p>
+                <strong>
+                    bonne reponse:
+                </strong>
+                {{ reponse.reponse }}
+            </p>
+               
+
+            {% else %}
+
+           
+            <p>
+                {{ reponse.reponse }}
+            </p>
+
+               
+
+            {% endif %}
+
+        {% endfor %}
+
+    {% endfor %}
+{% endblock %}

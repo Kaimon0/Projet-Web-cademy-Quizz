@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+{% block body %}
+    <h1>Tout les Quizz !</h1>
+
+        
+    
+               
+        </thead>
+        <ul>
+        {% for categorie in categories %}
+               <li> <a href = "{{ path('app_categorie_show', {'id': categorie.id}) }}"> {{ categorie.name }}</li>
+                    {# <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a> #}
+                    {# <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a> #}
+        {% endfor %}
+        </ul>
+
+    <a href="{{ path('app_categorie_new') }}">Faire mon propre quizz</a>
+{% endblock %}

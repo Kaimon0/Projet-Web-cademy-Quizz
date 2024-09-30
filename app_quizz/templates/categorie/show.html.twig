@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ categorie.name }}{% endblock %}
+
+{# {{ form_start(form) }} #}
+
+{# {{ form_widget(form) }} #}
+
+{% block body %}
+
+    <h1>{{ categorie.name }}</h1>
+
+    <ul>
+
+        {% for questions in question %}
+
+        <li> {{questions.question}}</li>
+
+                {% endfor %}
+    </ul>
+
+    {# <a href="{{ path('app_categorie_index') }}">back to list</a>
+
+    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a> #}
+
+    {# {{ include('categorie/_delete_form.html.twig') }} #}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+
+{# {{ form_end(form) }} #}
+
+{% endblock %}
